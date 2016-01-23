@@ -1,12 +1,14 @@
 from urllib2 import urlopen
 from xml.dom import minidom
 from pprint import pprint
+from collections import defaultdict
 
 def print_elements(eles):
     #prints out elements enclosed in tags
     for ele in eles:
         print ele.firstChild.nodeValue.encode('utf-8').strip()
         
+events = defaultdict(list)
 
     
     
@@ -20,12 +22,21 @@ university = urlopen('https://events.stanford.edu/xml/eventlist.xml')
 data = minidom.parseString(university.read())
 university.close()
 
+
 titles = data.getElementsByTagName(tag_list[0])
 locationTexts = data.getElementsByTagName(tag_list[1])
 descriptions = data.getElementsByTagName(tag_list[2])
-print_elements(titles)
-print_elements(locationTexts)
-print_elements(descriptions)
+print len(titles)
+print len(locationTexts)
+print len(descriptions)
+for key_event in range(len(titles) - 1):
+	events[key_event].append(titles[key_event + 1])
+	events[key_event].append(locationTexts[key_event])
+	events[key_event].append(descriptions[key_event])
+	
+
+#print_elements(titles)
+#print_elements(locationTexts)
+#print_elements(descriptions)
 #for title in titles:
 #    print title.firstChild.nodeValue.encode('utf-8').strip()
-#print name.firstChild.nodeValue
