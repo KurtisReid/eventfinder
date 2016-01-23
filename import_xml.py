@@ -1,12 +1,42 @@
 from urllib2 import urlopen
 from xml.dom import minidom
 from pprint import pprint
+from collections import defaultdict
 
-ny = urlopen('https://events.stanford.edu/xml/eventlist.xml')
+def print_elements(eles):
+    #prints out elements enclosed in tags
+    for ele in eles:
+        print ele.firstChild.nodeValue.encode('utf-8').strip()
+        
+events = defaultdict(list)
 
-pets = minidom.parseString(ny.read())
-ny.close()
+    
+    
+tag_list = ['title', 'locationText', 'description_textonly', 'url', 'locationText', 'beginDate', 'beginTime', 'endTime', 'tags', 'categories'] #this tag list works with the stanford xml
+    
+    
 
-titles = pets.getElementsByTagName('title')
-for title in titles:
-    print title.firstChild.nodeValue.encode('utf-8').strip()
+university = urlopen('https://events.stanford.edu/xml/eventlist.xml')
+#Upen = urlopen('https://www.sas.upenn.edu/events/rss.xml')
+#ny = urlopen('http://events.bc.edu/calendar.xml')
+data = minidom.parseString(university.read())
+university.close()
+
+
+titles = data.getElementsByTagName(tag_list[0])
+locationTexts = data.getElementsByTagName(tag_list[1])
+descriptions = data.getElementsByTagName(tag_list[2])
+print len(titles)
+print len(locationTexts)
+print len(descriptions)
+for key_event in range(len(titles) - 1):
+	events[key_event].append(titles[key_event + 1])
+	events[key_event].append(locationTexts[key_event])
+	events[key_event].append(descriptions[key_event])
+	
+
+#print_elements(titles)
+#print_elements(locationTexts)
+#print_elements(descriptions)
+#for title in titles:
+#    print title.firstChild.nodeValue.encode('utf-8').strip()
