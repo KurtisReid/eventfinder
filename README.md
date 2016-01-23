@@ -18,7 +18,7 @@ run
 
 After you download node, you'll have npm along with it, which will allow you to download bower and gulp, 2 tools we'll be using. So to do that run
 
-    sudo npm i -g bower && sudo npm i -g gulp
+    sudo npm i -g bower && sudo npm i -g gulp && sudo npm i -g stylus
 
 Now that we have the 2 packages installed we can download the front-end dependencies through bower. Make sure you're in the project's root directory and run
 
@@ -31,7 +31,7 @@ To compile the Stylus code into CSS you'll need to to use gulp, and the command 
     //Temporary, I'm working on a shorter way with gulp but this will work for now...
 
 
-Finally, with all the setting up out of the way, you can run the app using
+Finally, with all the setting up out of the way, you can run the app from the  root directory using
 
     python __init__.py
 
