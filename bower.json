@@ -35,6 +35,7 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-sites": "~6.1.2"
+    "foundation-sites": "~6.1.2",
+    "foundation-icon-fonts": "*"
   }
 }
