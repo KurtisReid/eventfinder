@@ -10,6 +10,7 @@ from collections import defaultdict
 
 def getElements(xmlData, tag_list_number):
 	default_tag_list = ['title', 'description', 'link', 'pubDate']
+	default_tag_list = ['title', 'description', 'link', 'pubDate']
 	#tag_list = ['title', 'locationText', 'description_textonly', 'url', 'beginDate', 'beginTime', 'endTime', 'tags', 'categories'] #this tag list works with the stanford xml
 	return xmlData.getElementsByTagName(default_tag_list[tag_list_number])
         
@@ -22,6 +23,7 @@ fout = open("output.dat", "w")
     
     
 
+university = urlopen('https://events.stanford.edu/xml/eventlist.xml')
 university = urlopen('https://events.stanford.edu/xml/eventlist.xml')
 #Upen = urlopen('https://www.sas.upenn.edu/events/rss.xml')
 #ny = urlopen('http://events.bc.edu/calendar.xml')
