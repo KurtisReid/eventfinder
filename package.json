@@ -1,0 +1,37 @@
+{
+  "name": "eventfinder",
+  "version": "0.0.0",
+  "description": "Civic hack centralizing publicly available educational lecture and events in Seattle.",
+  "main": "__init__.py",
+  "scripts": {
+    "test": "echo \"Found any events?\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KurtisReid/eventfinder.git"
+  },
+  "keywords": [
+    "Python",
+    "Flask",
+    "Civic",
+    "Hacking",
+    "Bower",
+    "Gulp",
+    "Stylus",
+    "Foundation",
+    "Seattle",
+    "SeattleOpenData"
+  ],
+  "author": "Dor-Ron <dor.rondel@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KurtisReid/eventfinder/issues"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-stylus": "~2.2.0",
+    "gulp-autoprefixer": "~3.1.0",
+    "gulp-minify-css": "~1.2.3",
+    "gulp-rename": "~1.2.2"
+  }
+}

@@ -4,4 +4,13 @@
 
 # Bower Components
 
-bower_components
+bower_components/
+
+# Virtual Enviroment Packages
+
+venv/
+
+#npm packages and logs
+
+node_modules/
+*.log
