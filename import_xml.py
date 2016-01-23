@@ -9,7 +9,7 @@ def print_elements(eles):
         print ele.firstChild.nodeValue.encode('utf-8').strip()
         
 events = defaultdict(list)
-
+fout = open("output.dat", "w")
     
     
 tag_list = ['title', 'locationText', 'description_textonly', 'url', 'locationText', 'beginDate', 'beginTime', 'endTime', 'tags', 'categories'] #this tag list works with the stanford xml
@@ -30,10 +30,15 @@ print len(titles)
 print len(locationTexts)
 print len(descriptions)
 for key_event in range(len(titles) - 1):
-	events[key_event].append(titles[key_event + 1])
-	events[key_event].append(locationTexts[key_event])
-	events[key_event].append(descriptions[key_event])
+	events[key_event].append(titles[key_event + 1].firstChild.nodeValue.encode('utf-8').strip())
+	events[key_event].append(locationTexts[key_event].firstChild.nodeValue.encode('utf-8').strip())
+	events[key_event].append(descriptions[key_event].firstChild.nodeValue.encode('utf-8').strip())
 	
+for val in events.values():
+    for element in val:
+        fout.write("%s" %element)
+    fout.write("\n")
+    
 
 #print_elements(titles)
 #print_elements(locationTexts)
