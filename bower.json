@@ -36,6 +36,7 @@
   ],
   "dependencies": {
     "foundation-sites": "~6.1.2",
-    "foundation-icon-fonts": "*"
+    "foundation-icon-fonts": "*",
+    "components-font-awesome": "~4.5.0"
   }
 }

@@ -1,3 +1,27 @@
-body {
-  background-color: #ffa500;
+.top-bar {
+  background: #96b65d;
+}
+.fi-megaphone {
+  color: #dfc9c4;
+  font-size: 30px;
+}
+.fi-info {
+  font-size: 30px;
+  color: #dfc9c4;
+  text-decoration: none;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: #dfc9c4;
+}
+a:hover {
+  color: #dfc9c4;
+}
+ul {
+  list-style: none;
+}
+li {
+  text-decoration: none;
+  display: inline-block;
 }
