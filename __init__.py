@@ -9,6 +9,12 @@ app = Flask(__name__)
 def index():
     return render_template("index.html", title="Event Finder")
 
+@app.route('/about/')
+
+def helloWorld():
+	return 'Hello World'
+
+
 if __name__ == '__main__':
-    print " * Your app is running on port 5000!"
+    print( " * Your app is running on port 5000!")
     app.run(debug=True, port=5000)
