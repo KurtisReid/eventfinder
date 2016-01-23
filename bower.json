@@ -1,0 +1,38 @@
+{
+  "name": "eventfinder",
+  "homepage": "https://github.com/KurtisReid/eventfinder",
+  "authors": [
+    "Dor-Ron <dor.rondel@gmail.com>",
+    "KurtisReid <kreid8@kent.edu>",
+    "fernflores0463",
+    "dusanramljak",
+    "astrocadia"
+  ],
+  "description": "Civic hack centralizing publicly available educational lecture and events in NYC.",
+  "main": "__init__.py",
+  "moduleType": [],
+  "keywords": [
+    "Python",
+    "Civic",
+    "Hacking",
+    "NYC",
+    "Bower",
+    "Flask",
+    "Stlyus",
+    "Gulp",
+    "Requests",
+    "Foundation",
+    "jQuery."
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": "~6.1.2"
+  }
+}

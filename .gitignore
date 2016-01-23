@@ -1,0 +1,7 @@
+# Pycache
+
+*.pyc
+
+# Bower Components
+
+bower_components
