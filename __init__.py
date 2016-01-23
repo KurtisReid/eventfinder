@@ -10,7 +10,6 @@ def index():
     return render_template("index.html", title="Event Finder")
 
 @app.route('/about/')
-
 def helloWorld():
 	return 'Hello World'
 
