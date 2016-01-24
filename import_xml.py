@@ -121,11 +121,14 @@ for val in events.values():
         fout.write("%s\t" %element)
     fout.write("\n")
 
-matching = [s for s in events.values() if 'January 16, 2016' in s]
+matching = [s for s in events.values() if "Arts" in s]
+
 print matching
-#matching = [i for i, x in enumerate(beginDate) if 'January 16, 2016' in x]     
+
+
+#matching = [i for i in enumerate(beginDate) if 'January 16, 2016' in i]     
 #cat = search_for_elem(events, 'January 16, 2016')
-#print cat
+#print matching
 #print_elements(titles)
 #print_elements(locationTexts)
 #print_elements(descriptions)
