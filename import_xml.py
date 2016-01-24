@@ -19,6 +19,10 @@ def getElements(xmlData, tag_list_number):
 	except:
 		return []
         
+def search_for_elem(tag_to_search, search_for):
+	return matching = [i for i, x in enumerate(tag_to_search) if search_for in x]
+
+
 events = defaultdict(list)
 fout = open("output.dat", "w")
     
@@ -121,3 +125,5 @@ for val in events.values():
 #print_elements(descriptions)
 #for title in titles:
 #    print title.firstChild.nodeValue.encode('utf-8').strip()
+
+
