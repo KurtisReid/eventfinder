@@ -9,8 +9,10 @@ from collections import defaultdict
         #print ele.firstChild.nodeValue.encode('utf-8').strip()
 
 def getElements(xmlData, tag_list_number):
-	default_tag_list = ['title', 'description', 'link', 'pubDate']
-	#tag_list = ['title', 'locationText', 'description_textonly', 'url', 'beginDate', 'beginTime', 'endTime', 'tags', 'categories'] #this tag list works with the stanford xml
+	#default_tag_list = ['title', 'description', 'link', 'pubDate']
+	#xtrumba = ['title', 'description', 'x-trumba:weblink', 'pubDate']
+	default_tag_list = ['title', 'description_textonly', 'url', 'beginDate']
+	#stanford = ['title', 'locationText', 'description_textonly', 'url', 'beginDate', 'beginTime', 'endTime', 'tags', 'categories'] #this tag list works with the stanford xml
 	return xmlData.getElementsByTagName(default_tag_list[tag_list_number])
         
 events = defaultdict(list)
@@ -23,8 +25,11 @@ fout = open("output.dat", "w")
     
 
 university = urlopen('https://events.stanford.edu/xml/eventlist.xml')
-#Upen = urlopen('https://www.sas.upenn.edu/events/rss.xml')
-#ny = urlopen('http://events.bc.edu/calendar.xml')
+#university = urlopen('http://www.trumba.com/calendars/tufts.rss')
+#university = urlopen('http://www.uni.edu/unicalendar/rss.xml')
+#university = urlopen('https://ruevents.rutgers.edu/events/getEventsRss.xml')
+#university = urlopen('https://www.sas.upenn.edu/events/rss.xml')
+#university = urlopen('http://events.bc.edu/calendar.xml')
 data = minidom.parseString(university.read())
 university.close()
 
@@ -46,12 +51,15 @@ beginDate = getElements(data, 3)
 print len(titles)
 #print len(locationTexts)
 print len(descriptions)
+print len(beginDate)
+print len(url)
 flag_titles = 0
 if len(titles) > len(descriptions):
 	range_titles = len(titles) - 1
 else:
 	range_titles = len(titles)
 	flag_titles = 1	
+url_key_event_gap = 0
 
 for key_event in range(range_titles):
 	if flag_titles:
@@ -59,14 +67,33 @@ for key_event in range(range_titles):
 	else:
 		events[key_event].append(titles[key_event + 1].firstChild.nodeValue.encode('utf-8').strip())
 	#events[key_event].append(locationTexts[key_event].firstChild.nodeValue.encode('utf-8').strip())
-	events[key_event].append(descriptions[key_event].firstChild.nodeValue.encode('utf-8').strip())
-	events[key_event].append(url[key_event].firstChild.nodeValue.encode('utf-8').strip())
-	events[key_event].append(beginDate[key_event].firstChild.nodeValue.encode('utf-8').strip())
+	try:
+	    events[key_event].append(descriptions[key_event].firstChild.nodeValue.encode('utf-8').strip())
+        except:
+            events[key_event].append('')
+#	try:
+#	    events[key_event].append(url[key_event].firstChild.nodeValue.encode('utf-8').strip())
+#        except:
+#            events[key_event].append('')
+# Stanford hack:
+	if key_event == len(beginDate):
+	    events[key_event].append(beginDate[key_event-1].firstChild.nodeValue.encode('utf-8').strip())
+        else:
+            events[key_event].append(beginDate[key_event].firstChild.nodeValue.encode('utf-8').strip())
+
+key_event_counter = 0
+            
+for url_counter in range(len(url)):
+        #print key_event
+        #print url_key_event_gap
+        if url[url_counter].firstChild.nodeValue.encode('utf-8').strip()[0] == 'h':
+            events[key_event_counter].append(url[url_counter].firstChild.nodeValue.encode('utf-8').strip())
+            key_event_counter += 1
 
 	
 for val in events.values():
     for element in val:
-        fout.write("%s" %element)
+        fout.write("%s\t" %element)
     fout.write("\n")
     
 
