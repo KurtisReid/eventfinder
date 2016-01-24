@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='stylus/index.css') }}"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='stylus/animate.min.css') }}"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/foundation-datepicker/css/foundation-datepicker.min.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylus/basicModal.min.css') }}"/>
 {% endblock %}
 
 {% block body %}
@@ -60,8 +61,11 @@
           </select>
           <br/><br/>
   				<input type="text" class="span2" name="get-date" value="Select a Date" id="dp1">
-          <br/>
-          <button type="submit" id="submit">Submit!</button>
+          <br/><br/>
+            <div class="btnn">
+              <a class="alert button large" type="submit">asasd</a>
+            </div>
+          </div>
       </div>
     </form>
     <footer>
@@ -81,5 +85,6 @@
 
 {% block scripts %}
   <script src="{{ url_for('static', filename='bower_components/foundation-datepicker/js/foundation-datepicker.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='scripts/basicModal.min.js')}}"></script>
   <script src="{{ url_for('static', filename='scripts/index.js')}}"></script>
 {% endblock %}
