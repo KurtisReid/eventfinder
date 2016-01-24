@@ -2,35 +2,44 @@
 
 {% block title %} Results | Event Findr {% endblock %}
 
+{% block css %}
+  <link rel='stylesheet' href='{{ url_for("static", filename="stylus/responsive-table.css") }}'>
+  <style>
+    span {
+      width: 800px;
+    }
+  </style>
+{% endblock %}
+
 {% block body %}
-<table>
+
+<table class='responsive'>
 <thead>
   <tr>
-    <th width="300">Location Name</th>
-    <th>Event Description</th>
+    <th width="130">Location Name</th>
+    <span>
+    <th width="800">Event Description</th>
+    </span>
     <th width="150">Title</th>
     <th width="150">Time</th>
   </tr>
 </thead>
 <tbody>
+  {% for event in info %}
   <tr>
-    <td>Content Goes Here</td>
-    <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-    <td>Content Goes Here</td>
-    <td>Content Goes Here</td>
+    <td> {{event[3]}}</td>
+    <span>
+    <td> {{event[0][:1100]}} </td>
+    </span>
+    <td> {{event[1]}}</td>
+    <td> {{event[2]}}</td>
   </tr>
-  <tr>
-    <td>Content Goes Here</td>
-    <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-    <td>Content Goes Here</td>
-    <td>Content Goes Here</td>
-  </tr>
-  <tr>
-    <td>Content Goes Here</td>
-    <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-    <td>Content Goes Here</td>
-    <td>Content Goes Here</td>
-  </tr>
+  {% endfor %}
 </tbody>
 </table>
+
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='scripts/responsive-table.js')}}"></script>
 {% endblock %}

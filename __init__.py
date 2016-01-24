@@ -9,6 +9,8 @@ from flask import (Flask,
                    g,
                    session)
 
+from makeForm import events, find_event
+
 app = Flask(__name__)
 app.secret_key = 'REDACTED'
 
@@ -27,7 +29,9 @@ def helloWorld():
 
 @app.route('/results/<city>/<category>/<date>/')
 def results(city, category, date):
-    return render_template('results.html')
+    info = find_event(date, category, city)
+    print info
+    return render_template('results.html', info=info)
 
 if __name__ == '__main__':
     print( " * Your app is running on port 5000!")

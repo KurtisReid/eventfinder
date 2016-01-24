@@ -1,16 +1,19 @@
 #!/usr/bin/env python
-# This code handles a request 
+# This code handles a request
 import string, time, math
+
 
 t1 = time.time()
 
 fD = open("database.csv")
 Dlines = fD.readlines()
 fD.close()
+
 events = {}
 
 for line_num in xrange(len(Dlines)):
-  events[line_num] = Dlines[line_num].strip().split("\t")
+  q = filter(lambda x: x in string.printable, Dlines[line_num])
+  events[line_num] = Dlines[line_num].strip().strip('%').decode('utf-8').split("\t")
 
 default_tag_list = ['location', 'title', 'description_textonly', 'beginDate', 'categories', 'url'] #stanford
 
@@ -41,11 +44,11 @@ def find_event(requested_date, requested_cat, requested_city):
     if date1 in events[s][3] or date2 in events[s][3] or date3 in events[s][3] or date4 in events[s][3]:
       if requested_cat in events[s][2]:
         if Loc_Dict[requested_city] in events[s][0]:
-          returnlist.append("{}\t{}\t{}\t{}".format(events[s][2],events[s][1],events[s][3],events[s][0]).split("\t"))
+          returnlist.append("{}\t{}\t{}\t{}".format(events[s][2],events[s][1],events[s][3],events[s][0]).strip('%').split("\t"))
   return returnlist
 
 #x = find_event(requested_date, requested_cat, requested_city)
-#print x 
+#print x
 #  if "Arts" in events[s][2] and "Jan 27" in events[s][3]:
 #    print events[s][0]
 #    print s
@@ -57,7 +60,7 @@ def find_event(requested_date, requested_cat, requested_city):
 
 
 
-#matching = [i for i in enumerate(beginDate) if 'January 16, 2016' in i]     
+#matching = [i for i in enumerate(beginDate) if 'January 16, 2016' in i]
 #cat = search_for_elem(events, 'January 16, 2016')
 #print matching
 #print_elements(titles)
@@ -65,6 +68,3 @@ def find_event(requested_date, requested_cat, requested_city):
 #print_elements(descriptions)
 #for title in titles:
 #    print title.firstChild.nodeValue.encode('utf-8').strip()
-
-
-  
