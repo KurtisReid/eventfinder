@@ -10,17 +10,19 @@ from collections import defaultdict
 
 def getElements(xmlData, tag_list_number):
 	#default_tag_list = ['location', 'title', 'description', 'event:beginDateTime', 'categories', 'link'] #rutgers
-	default_tag_list = ['location', 'title', 'description', 'pubDate', 'categories', 'link']
+	#default_tag_list = ['location', 'title', 'description', 'pubDate', 'categories', 'link']
 	#default_tag_list = ['location', 'title', 'description', 'pubDate', 'categories', 'x-trumba:weblink'] #trumba
-	#default_tag_list = ['location', 'title', 'description_textonly', 'beginDate', 'categories', 'url'] #stanford
+	default_tag_list = ['location', 'title', 'description_textonly', 'beginDate', 'categories', 'url'] #stanford
 	#stanford = ['title', 'locationText', 'description_textonly', 'url', 'beginDate', 'beginTime', 'endTime', 'tags', 'categories'] #this tag list works with the stanford xml
 	try:
 		return xmlData.getElementsByTagName(default_tag_list[tag_list_number])
 	except:
 		return []
         
-def search_for_elem(tag_to_search, search_for):
-	return matching = [i for i, x in enumerate(tag_to_search) if search_for in x]
+#def search_for_elem(diction, search_for):
+#	matching = [i for i, x in enumerate(diction) if search_for in x]
+#	print matching
+#	return matching
 
 
 events = defaultdict(list)
@@ -32,7 +34,7 @@ fout = open("output.dat", "w")
     
     
 
-#university = urlopen('https://events.stanford.edu/xml/eventlist.xml')
+university = urlopen('https://events.stanford.edu/xml/eventlist.xml')
 #university = urlopen('http://www.trumba.com/calendars/tufts.rss')
 #university = urlopen('http://www.uni.edu/unicalendar/rss.xml')
 #university = urlopen('https://ruevents.rutgers.edu/events/getEventsRss.xml')
@@ -42,7 +44,7 @@ fout = open("output.dat", "w")
 #university = urlopen('http://services.rice.edu/events/dailyevents.cfm')
 #university = urlopen('http://calendar.utexas.edu/calendar.xml')
 #university = urlopen('http://events.colorado.edu/RSSSyndicator.aspx?category=&location=&type=N&binary=Y&keywords=&ics=Y')
-university = urlopen('http://www.purdue.edu/newsroom/rss/EventNews.xml')
+#university = urlopen('http://www.purdue.edu/newsroom/rss/EventNews.xml')
 data = minidom.parseString(university.read())
 university.close()
 
@@ -118,8 +120,12 @@ for val in events.values():
     for element in val:
         fout.write("%s\t" %element)
     fout.write("\n")
-    
 
+matching = [s for s in events.values() if 'January 16, 2016' in s]
+print matching
+#matching = [i for i, x in enumerate(beginDate) if 'January 16, 2016' in x]     
+#cat = search_for_elem(events, 'January 16, 2016')
+#print cat
 #print_elements(titles)
 #print_elements(locationTexts)
 #print_elements(descriptions)
