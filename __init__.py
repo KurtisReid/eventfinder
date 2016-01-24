@@ -5,6 +5,7 @@ from flask import (Flask,
                    url_for,
                    flash,
                    request,
+                   redirect,
                    g,
                    session)
 
@@ -13,17 +14,20 @@ app.secret_key = 'REDACTED'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    session['city'] = request.form.get('city')
-    session['category'] = request.form.get('category')
-    session['date'] = request.form.get('date')
-    return render_template("index.html", title="Event Findr")
+    if request.method == 'POST':
+        session['city'] = request.form.get('city')
+        session['category'] = request.form.get('category')
+        session['date'] = request.form.get('get-    date')
+        return redirect(url_for('results', city=session['city'], category=session['category'], date=session['date']))
+    return render_template("index.html")
 
 @app.route('/about/')
 def helloWorld():
     return render_template("about.html", title="About Us")
 
-@app.route('/results/')
-    return render_template()
+@app.route('/results/<city>/<category>/<date>/')
+def results(city, category, date):
+    return render_template('results.html')
 
 if __name__ == '__main__':
     print( " * Your app is running on port 5000!")
