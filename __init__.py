@@ -17,7 +17,7 @@ def index():
     if request.method == 'POST':
         session['city'] = request.form.get('city')
         session['category'] = request.form.get('category')
-        session['date'] = request.form.get('get-    date')
+        session['date'] = request.form.get('get-date')
         return redirect(url_for('results', city=session['city'], category=session['category'], date=session['date']))
     return render_template("index.html")
 
