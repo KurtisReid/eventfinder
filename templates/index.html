@@ -3,17 +3,19 @@
 
 {% block title %} {{ title }} {% endblock %}
 {% block css%}
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ url_for('static', filename='stylus/index.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylus/animate.min.css') }}"/>
 {% endblock %}
 
 {% block body %}
   <section>
-    <a href='/'>
-      <i class="fi-megaphone megaphone-small"></i>
-    </a>
-    <a href="/about/">
-      <i class="fi-info"></i> &nbsp;
-    </a>
+      <a href='/'>
+        <i class="fi-megaphone megaphone-small"></i>
+      </a>
+      <a href="/about/">
+        <i class="fi-info"></i> &nbsp;
+      </a>
     <div class="logo">
       <div class="logo_container">
         <i class="fi-megaphone megaphone-large"></i>
@@ -21,11 +23,14 @@
         <p> Made by a team of extraordinarily adept individuals with unimaginable programming talent and good looks </p>
         <p> Oh yea, we're educating the USA, one passionate individual at a time </p>
       </div>
-      <i class="fa fa-angle-double-down fa-2x"></i>
+      <i class="fa fa-angle-double-down fa-2x animated flash"></i>
     </div>
   </section>
-  
-  <!--<i class="fa fa-angle-double-down fa-2x"></i>-->
+  <h1 style="font-family: 'Pacifico', cursive;"><u>Event Findr</u></h1>
 
+  <!--<i class="fa fa-angle-double-down fa-2x"></i>-->
+{% endblock %}
+
+{% block scripts %}
 
 {% endblock %}

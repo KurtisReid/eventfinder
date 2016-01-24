@@ -11,9 +11,12 @@ from collections import defaultdict
 def getElements(xmlData, tag_list_number):
 	#default_tag_list = ['title', 'description', 'link', 'pubDate']
 	#xtrumba = ['title', 'description', 'x-trumba:weblink', 'pubDate']
-	default_tag_list = ['title', 'description_textonly', 'url', 'beginDate']
+	default_tag_list = ['title', 'description_textonly', 'url', 'beginDate', 'categories']
 	#stanford = ['title', 'locationText', 'description_textonly', 'url', 'beginDate', 'beginTime', 'endTime', 'tags', 'categories'] #this tag list works with the stanford xml
-	return xmlData.getElementsByTagName(default_tag_list[tag_list_number])
+	try:
+		return xmlData.getElementsByTagName(default_tag_list[tag_list_number])
+	except:
+		return []
         
 events = defaultdict(list)
 fout = open("output.dat", "w")
@@ -43,6 +46,7 @@ descriptions = getElements(data, 1)
 #url = getElements(data, 3)
 url = getElements(data, 2)
 beginDate = getElements(data, 3)
+categories = getElements(data, 4)
 #beginDate = getElements(data, 4)
 #beginTime = getElements(data, 5)
 #endTime = getElements(data, 6)
