@@ -1,19 +1,31 @@
 {% extends 'base.html' %}
 
 
-{% block title %} Fuck Dor {% endblock %}
-
+{% block title %} About Us {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='stylus/about.css') }}"/>
+<link href='https://fonts.googleapis.com/css?family=Raleway:600' rel='stylesheet' type='text/css'>
+{% endblock %}
 {% block body %}
+  <a href='/'>
+      <i class="fi-megaphone megaphone-small"></i>
+    </a>
+    <a href="/about/">
+      <i class="fi-info"></i> &nbsp;
+    </a>
 <div class = "ayy">
-<h1>About Us</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras blandit tempor felis vel dapibus. Aenean augue ipsum, pulvinar eu urna sed, tincidunt aliquam libero. Donec vel elementum massa, sed sodales dui. Nam lobortis, lectus eu vestibulum volutpat, massa tellus faucibus nibh, vel placerat leo massa non dui. Pellentesque interdum nisl nec quam iaculis, ut tincidunt diam pharetra. Aenean tincidunt vitae leo ut tincidunt. Nam auctor pretium vulputate. Integer eu est ac ipsum pellentesque maximus. Fusce suscipit, diam molestie laoreet eleifend, justo metus fermentum lectus, non dignissim lacus mauris ac ex. Phasellus pharetra venenatis commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer lacus risus, fermentum non justo id, imperdiet convallis felis.</p>
+	<div class = "text">
+	<h1>About Us</h1>
+	<img src="../static/img/teamphoto.jpg">
+	<p>About a day and a half ago we were all sitting down at the Civic Track Seminar for PennApps and the presenter asked “Who’s still looking for a team?” and thus Findr was born. We wanted a place where people who wanted to learn can come and learn without having to dig through the endless pit that Google is (admit it, you only use Google) to find what you want. we’ve collected dozens of feeds from colleges in major cities around the nation of events that they will be hosting, many which are free to the public.</p>
 
-<p>Pellentesque non vestibulum dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non auctor neque. Mauris eros libero, pellentesque quis sem vitae, sollicitudin commodo diam. Aliquam erat volutpat. Proin pellentesque eleifend velit sit amet ornare. Cras sed posuere diam, et mollis urna. In magna arcu, maximus eu augue eget, commodo aliquam nibh. Quisque a diam magna. Duis et tincidunt lectus.</p>
+	<!--<p>Pellentesque non vestibulum dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non auctor neque. Mauris eros libero, pellentesque quis sem vitae, sollicitudin commodo diam. Aliquam erat volutpat. Proin pellentesque eleifend velit sit amet ornare. Cras sed posuere diam, et mollis urna. In magna arcu, maximus eu augue eget, commodo aliquam nibh. Quisque a diam magna. Duis et tincidunt lectus.</p>
 
-<p>Proin venenatis magna tempus, volutpat nisl feugiat, aliquet diam. Ut non pharetra diam, non vehicula quam. Ut euismod tellus fermentum eros ultricies porttitor. Donec non mi felis. Morbi quis augue quis orci finibus blandit eget non leo. Donec sollicitudin mattis leo. In et nibh vel lectus dignissim eleifend eget posuere dui. Morbi rhoncus orci velit.</p>
+	<p>Proin venenatis magna tempus, volutpat nisl feugiat, aliquet diam. Ut non pharetra diam, non vehicula quam. Ut euismod tellus fermentum eros ultricies porttitor. Donec non mi felis. Morbi quis augue quis orci finibus blandit eget non leo. Donec sollicitudin mattis leo. In et nibh vel lectus dignissim eleifend eget posuere dui. Morbi rhoncus orci velit.</p>
 
-<p>Curabitur laoreet in urna et porta. Duis pretium turpis quis ultrices ultrices. In hac habitasse platea dictumst. Nam eu porta nibh. Etiam congue ac augue id ullamcorper. Sed sagittis lacinia massa, sed lacinia mauris pellentesque et. Donec condimentum nisi sed nunc pulvinar, eu ornare tortor efficitur. Vivamus pretium ut lectus iaculis pharetra. Etiam nisi magna, ornare a ornare vel, facilisis sagittis arcu. Sed volutpat mi volutpat, pretium ante nec, pharetra metus. Aliquam erat volutpat. Mauris vitae tincidunt purus. Ut eu justo ipsum. Vestibulum magna erat, cursus vel mauris ac, vestibulum lobortis metus.</p>
+	<p>Curabitur laoreet in urna et porta. Duis pretium turpis quis ultrices ultrices. In hac habitasse platea dictumst. Nam eu porta nibh. Etiam congue ac augue id ullamcorper. Sed sagittis lacinia massa, sed lacinia mauris pellentesque et. Donec condimentum nisi sed nunc pulvinar, eu ornare tortor efficitur. Vivamus pretium ut lectus iaculis pharetra. Etiam nisi magna, ornare a ornare vel, facilisis sagittis arcu. Sed volutpat mi volutpat, pretium ante nec, pharetra metus. Aliquam erat volutpat. Mauris vitae tincidunt purus. Ut eu justo ipsum. Vestibulum magna erat, cursus vel mauris ac, vestibulum lobortis metus.</p>
 
-<p>In hac habitasse platea dictumst. Vestibulum ullamcorper rhoncus tristique. Aenean ullamcorper id odio sed ultrices. Mauris venenatis orci vitae feugiat egestas. Curabitur interdum consectetur magna eu sodales. Quisque sollicitudin, quam nec dictum vestibulum, metus lectus porta massa, at lobortis ligula urna vel erat. Vivamus nunc urna, accumsan quis accumsan non, viverra et erat. Mauris euismod, quam id accumsan volutpat, purus sapien eleifend nisl, in egestas leo massa vel massa. Quisque sodales, elit nec placerat pharetra, dolor dui imperdiet risus, non volutpat nulla mauris sit amet tellus. Pellentesque pulvinar imperdiet scelerisque. In non tortor justo. Etiam tincidunt sit amet tellus ut suscipit. Nullam eleifend libero eget mauris vulputate suscipit. Ut ornare eros sed ex semper, a cursus sem scelerisque. Proin eleifend commodo eros quis sodales.</p>
+	<p>In hac habitasse platea dictumst. Vestibulum ullamcorper rhoncus tristique. Aenean ullamcorper id odio sed ultrices. Mauris venenatis orci vitae feugiat egestas. Curabitur interdum consectetur magna eu sodales. Quisque sollicitudin, quam nec dictum vestibulum, metus lectus porta massa, at lobortis ligula urna vel erat. Vivamus nunc urna, accumsan quis accumsan non, viverra et erat. Mauris euismod, quam id accumsan volutpat, purus sapien eleifend nisl, in egestas leo massa vel massa. Quisque sodales, elit nec placerat pharetra, dolor dui imperdiet risus, non volutpat nulla mauris sit amet tellus. Pellentesque pulvinar imperdiet scelerisque. In non tortor justo. Etiam tincidunt sit amet tellus ut suscipit. Nullam eleifend libero eget mauris vulputate suscipit. Ut ornare eros sed ex semper, a cursus sem scelerisque. Proin eleifend commodo eros quis sodales.</p>
+	</div>-->
 </div>
 {% endblock %}
