@@ -35,6 +35,10 @@ footer {
 .megaphone-large {
   font-size: 250px;
 }
+.fa-angle-double-down:hover {
+  -webkit-animation: bounce 1s;
+  animation: bounce 1s;
+}
 desc {
   margin-top: -40px;
 }
@@ -44,6 +48,12 @@ desc {
     font-size: 23px;
   }
   .fa-angle-double-down {
-    margin-top: 220px;
+    margin-top: 180px;
   }
+}
+h1 {
+  font-family: 'Pacifico' cursive;
+  margin-top: 30px;
+  text-align: center;
+  color: #4889b3;
 }
