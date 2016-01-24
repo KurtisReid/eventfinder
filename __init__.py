@@ -11,8 +11,7 @@ def index():
 
 @app.route('/about/')
 def helloWorld():
-	return 'Hello World'
-
+	return render_template("about.html", title="About Us")
 
 if __name__ == '__main__':
     print( " * Your app is running on port 5000!")
