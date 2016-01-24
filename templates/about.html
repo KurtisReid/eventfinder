@@ -2,8 +2,16 @@
 
 
 {% block title %} Fuck Dor {% endblock %}
-
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='stylus/about.css') }}"/>
+{% endblock %}
 {% block body %}
+  <a href='/'>
+      <i class="fi-megaphone megaphone-small"></i>
+    </a>
+    <a href="/about/">
+      <i class="fi-info"></i> &nbsp;
+    </a>
 <div class = "ayy">
 <h1>About Us</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras blandit tempor felis vel dapibus. Aenean augue ipsum, pulvinar eu urna sed, tincidunt aliquam libero. Donec vel elementum massa, sed sodales dui. Nam lobortis, lectus eu vestibulum volutpat, massa tellus faucibus nibh, vel placerat leo massa non dui. Pellentesque interdum nisl nec quam iaculis, ut tincidunt diam pharetra. Aenean tincidunt vitae leo ut tincidunt. Nam auctor pretium vulputate. Integer eu est ac ipsum pellentesque maximus. Fusce suscipit, diam molestie laoreet eleifend, justo metus fermentum lectus, non dignissim lacus mauris ac ex. Phasellus pharetra venenatis commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer lacus risus, fermentum non justo id, imperdiet convallis felis.</p>
