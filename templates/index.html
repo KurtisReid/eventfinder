@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 
+
 {% block title %} {{ title }} {% endblock %}
 {% block css%}
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ url_for('static', filename='stylus/index.css') }}"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='stylus/animate.min.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/foundation-datepicker/css/foundation-datepicker.min.css') }}"/>
 {% endblock %}
 
 {% block body %}
-  <section>
+  <section class="first_page">
       <a href='/'>
         <i class="fi-megaphone megaphone-small"></i>
       </a>
@@ -26,11 +28,58 @@
       <i class="fa fa-angle-double-down fa-2x animated flash"></i>
     </div>
   </section>
-  <h1 style="font-family: 'Pacifico', cursive;"><u>Event Findr</u></h1>
-
-  <!--<i class="fa fa-angle-double-down fa-2x"></i>-->
+  <section class="second_page">
+    <h1 style="font-family: 'Pacifico', cursive;"><u>Event Findr</u></h1>
+    <br/><br/>
+    <div class="small-5 small-centered explanation">
+      Complete the 3 prompts below in order to find an event near you!
+    </div>
+    <br/><br/>
+    <form method="POST" action="" class="form">
+      <div class="small-6 small-centered columns">
+          <select name="city">
+            <option value="" disabled selected>Select a City</option>
+            <option value="nyc">NYC</option>
+            <option value="philly">Phladelphia</option>
+            <option value="rot">Rotchester</option>
+            <option value="sf">San Francisco</option>
+            <option value="boston">Boston</option>
+            <option value="la">Los Angeles</option>
+          </select>
+          <br/><br/>
+          <select name="category">
+            <option value="" disabled selected>Select a Category</option>
+            <option value="cs">Computer Science</option>
+            <option value="math">Mathematics</option>
+            <option value="bio">Biology</option>
+            <option value="chem">Chemistry</option>
+            <option value="physics">Physics</option>
+            <option value="art">Art</option>
+            <option value="lang">Linguistics</option>
+            <option value="astro">Astrology</option>
+          </select>
+          <br/><br/>
+  				<input type="text" class="span2" name="get-date" value="Select a Date" id="dp1">
+          <br/>
+          <button type="submit" id="submit">Submit!</button>
+      </div>
+    </form>
+    <footer>
+        <i class="fa fa-code"></i> by
+        <a href="https://github.com/fernflores0463">Fernando Flores</a>,
+        <a href="https://github.com/Dor-Ron">Dor Rondel</a>,
+        <a href="https://github.com/KurtisReid">Kurtis Reid</a>,
+        <a href="https://github.com/dusanramljak">Dusan Ramljak</a> &amp;
+        <a href="https://github.com/astrocadia">Mike</a> with <i class="fi-heart"></i> for PennApps XIII
+        Proudly hosted on
+        <a href="https://github.com/KurtisReid/eventfinder">
+          <i class="fa fa-github"></i>
+        </a>
+    </footer>
+  </section>
 {% endblock %}
 
 {% block scripts %}
-
+  <script src="{{ url_for('static', filename='bower_components/foundation-datepicker/js/foundation-datepicker.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='scripts/index.js')}}"></script>
 {% endblock %}

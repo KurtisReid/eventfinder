@@ -5,24 +5,24 @@ from wtforms import SelectField
 from wtforms.validators import DataRequired
 
 sample_cities = [
-    "NYC",
-    "Philadelphia",
-    "Rotchester",
-    "Boston",
-    "Los Angeles",
-    "San Francisco"
+    ("nyc", "NYC"),
+    ("philly", "Philadelphia"),
+    ("rot", "Rotchester"),
+    ("boston", "Boston"),
+    ("la", "Los Angeles"),
+    ("sf", "San Francisco")
 ]
 
 sample_categories = [
-    "Computer Science",
-    "Mathematics",
-    "Biology",
-    "Astrology",
-    "Physics",
-    "Chemistry",
-    "Art",
-    "Linguistics",
-    "Dance"
+    ("cs", "Computer Science"),
+    ("math", "Mathematics"),
+    ("bio", "Biology"),
+    ("astro", "Astrology"),
+    ("phys", "Physics"),
+    ("chem", "Chemistry"),
+    ("art", "Art"),
+    ('linguistics', "Linguistics"),
+    ('dance', "Dance")
 ]
 
 class SearchForm(Form):
