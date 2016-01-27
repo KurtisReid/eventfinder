@@ -30,7 +30,6 @@ def helloWorld():
 @app.route('/results/<city>/<category>/<date>/')
 def results(city, category, date):
     info = find_event(date, category, city)
-    print info
     return render_template('results.html', info=info)
 
 if __name__ == '__main__':
